@@ -27,16 +27,10 @@ Keep being the wonderful person you are, keep spreading joy, and never stop beli
       const timer = setTimeout(() => {
         setDisplayedText(fullText.slice(0, currentIndex + 1));
         setCurrentIndex(currentIndex + 1);
-      }, 20); // Faster typing speed
+      }, 20); // typing speed
       return () => clearTimeout(timer);
-    } else {
-      // Auto-advance after note is complete
-      const advanceTimer = setTimeout(() => {
-        onBackToHome();
-      }, 4000);
-      return () => clearTimeout(advanceTimer);
     }
-  }, [currentIndex, fullText, onBackToHome]);
+  }, [currentIndex, fullText]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#FFF8F0] via-[#FFE4E1] to-[#F5E6D3] py-12 px-4 flex items-center justify-center relative overflow-hidden">
@@ -119,12 +113,12 @@ Keep being the wonderful person you are, keep spreading joy, and never stop beli
                   className="pt-6 flex flex-col items-end mt-8"
                 >
                   <p className="font-script text-2xl md:text-3xl text-[#D4A574]">
-                    With love and best wishes,
+                    With happiness and best wishes,
                   </p>
                   <div className="flex items-center gap-2 mt-2">
                     <Heart className="w-6 h-6 text-[#FFB6C1] fill-[#FFB6C1]" />
                     <p className="font-script text-2xl md:text-3xl text-[#D4A574]">
-                      Your Well-Wisher
+                      by Sanaullah Khan
                     </p>
                     <Heart className="w-6 h-6 text-[#FFB6C1] fill-[#FFB6C1]" />
                   </div>

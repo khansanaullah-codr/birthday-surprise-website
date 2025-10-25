@@ -13,19 +13,15 @@ export default function LandingPage({ onOpenSurprise }: LandingPageProps) {
   const [countdown, setCountdown] = useState(5);
   const [showMain, setShowMain] = useState(false);
 
-  useEffect(() => {
-    if (countdown > 0) {
-      const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
-      return () => clearTimeout(timer);
-    } else {
-      setShowMain(true);
-      // Auto-advance after showing main content for 3 seconds
-      const autoAdvanceTimer = setTimeout(() => {
-        onOpenSurprise();
-      }, 3000);
-      return () => clearTimeout(autoAdvanceTimer);
-    }
-  }, [countdown, onOpenSurprise]);
+useEffect(() => {
+  if (countdown > 0) {
+    const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
+    return () => clearTimeout(timer);
+  } else {
+    setShowMain(true);
+  }
+}, [countdown]);
+
 
   if (!showMain) {
     return (

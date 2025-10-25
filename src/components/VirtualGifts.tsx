@@ -66,22 +66,17 @@ export default function VirtualGifts({ onContinue }: VirtualGiftsProps) {
   const [currentGift, setCurrentGift] = useState<GiftBox | null>(null);
 
   // Auto-open gifts one by one
-  useEffect(() => {
-    if (openedGifts.length < gifts.length) {
-      const timer = setTimeout(() => {
-        const nextGift = gifts[openedGifts.length];
-        setOpenedGifts([...openedGifts, nextGift.id]);
-        setCurrentGift(nextGift);
-      }, openedGifts.length === 0 ? 1000 : 2500);
-      return () => clearTimeout(timer);
-    } else {
-      // Auto-advance after all gifts opened
-      const advanceTimer = setTimeout(() => {
-        onContinue();
-      }, 3000);
-      return () => clearTimeout(advanceTimer);
-    }
-  }, [openedGifts, onContinue]);
+useEffect(() => {
+  if (openedGifts.length < gifts.length) {
+    const timer = setTimeout(() => {
+      const nextGift = gifts[openedGifts.length];
+      setOpenedGifts([...openedGifts, nextGift.id]);
+      setCurrentGift(nextGift);
+    }, openedGifts.length === 0 ? 1000 : 2500);
+    return () => clearTimeout(timer);
+  }
+}, [openedGifts]);
+
 
   // Auto-close modal after showing
   useEffect(() => {

@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import { Cake, PartyPopper, Wind } from 'lucide-react';
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { Cake, PartyPopper, Wind } from "lucide-react";
 
 interface BirthdayCakeProps {
   onContinue: () => void;
@@ -14,24 +14,6 @@ export default function BirthdayCake({ onContinue }: BirthdayCakeProps) {
   const [blowing, setBlowing] = useState(false);
 
   const numCandles = 5;
-
-  // Auto-blow candles after 3 seconds
-  useEffect(() => {
-    const blowTimer = setTimeout(() => {
-      handleBlowCandles();
-    }, 3000);
-    return () => clearTimeout(blowTimer);
-  }, []);
-
-  // Auto-advance after celebration
-  useEffect(() => {
-    if (showCelebration) {
-      const advanceTimer = setTimeout(() => {
-        onContinue();
-      }, 4000);
-      return () => clearTimeout(advanceTimer);
-    }
-  }, [showCelebration, onContinue]);
 
   const handleBlowCandles = () => {
     setBlowing(true);
@@ -52,11 +34,15 @@ export default function BirthdayCake({ onContinue }: BirthdayCakeProps) {
               key={i}
               className="absolute w-3 h-3 rounded-full"
               initial={{
-                x: '50vw',
-                y: '50vh',
-                backgroundColor: ['#D4A574', '#ff6b9d', '#c0c0ff', '#ffed4e', '#4ef4ff'][
-                  i % 5
-                ],
+                x: "50vw",
+                y: "50vh",
+                backgroundColor: [
+                  "#D4A574",
+                  "#ff6b9d",
+                  "#c0c0ff",
+                  "#ffed4e",
+                  "#4ef4ff",
+                ][i % 5],
               }}
               animate={{
                 x: `${Math.random() * 100}vw`,
@@ -66,7 +52,7 @@ export default function BirthdayCake({ onContinue }: BirthdayCakeProps) {
               }}
               transition={{
                 duration: 2,
-                ease: 'easeOut',
+                ease: "easeOut",
               }}
             />
           ))}
@@ -89,7 +75,7 @@ export default function BirthdayCake({ onContinue }: BirthdayCakeProps) {
           </div>
           <p className="font-serif text-lg md:text-xl text-[#8B7355]">
             {candlesLit
-              ? "Watch as the magic happens..."
+              ? "Get ready to blow out your candles!"
               : "Your wish has been made!"}
           </p>
         </motion.div>
@@ -99,7 +85,7 @@ export default function BirthdayCake({ onContinue }: BirthdayCakeProps) {
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ type: 'spring', duration: 1, delay: 0.3 }}
+            transition={{ type: "spring", duration: 1, delay: 0.3 }}
             className="relative"
           >
             {/* Candles */}
@@ -148,36 +134,26 @@ export default function BirthdayCake({ onContinue }: BirthdayCakeProps) {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="space-y-2"
             >
-              {/* Top layer */}
               <div className="relative">
                 <div className="h-20 bg-gradient-to-r from-pink-200 via-pink-300 to-pink-200 rounded-t-3xl border-4 border-white shadow-xl" />
                 <div className="absolute top-0 left-0 right-0 h-4 bg-gradient-to-r from-[#D4A574] via-yellow-300 to-[#D4A574] rounded-t-3xl border-x-4 border-t-4 border-white" />
-                {/* Frosting details */}
                 <div className="absolute bottom-2 left-0 right-0 flex justify-around px-4">
                   {[...Array(8)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="w-3 h-3 bg-white rounded-full shadow-md"
-                    />
+                    <div key={i} className="w-3 h-3 bg-white rounded-full shadow-md" />
                   ))}
                 </div>
               </div>
 
-              {/* Middle layer */}
               <div className="relative">
                 <div className="h-24 bg-gradient-to-r from-pink-300 via-pink-400 to-pink-300 border-4 border-white shadow-xl" />
                 <div className="absolute top-0 left-0 right-0 h-4 bg-gradient-to-r from-yellow-300 via-[#D4A574] to-yellow-300 border-x-4 border-white" />
                 <div className="absolute bottom-2 left-0 right-0 flex justify-around px-8">
                   {[...Array(6)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="w-4 h-4 bg-red-400 rounded-full shadow-md"
-                    />
+                    <div key={i} className="w-4 h-4 bg-red-400 rounded-full shadow-md" />
                   ))}
                 </div>
               </div>
 
-              {/* Bottom layer */}
               <div className="relative">
                 <div className="h-28 bg-gradient-to-r from-pink-400 via-pink-500 to-pink-400 rounded-b-3xl border-4 border-white shadow-2xl" />
                 <div className="absolute top-0 left-0 right-0 h-4 bg-gradient-to-r from-[#D4A574] via-yellow-400 to-[#D4A574] border-x-4 border-white" />
@@ -186,27 +162,32 @@ export default function BirthdayCake({ onContinue }: BirthdayCakeProps) {
                 </div>
               </div>
 
-              {/* Plate */}
               <div className="h-4 bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300 rounded-full border-4 border-white shadow-xl" />
             </motion.div>
           </motion.div>
         </div>
 
-        {/* Action Button / Celebration */}
+        {/* Buttons / Celebration */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}
-          className="text-center"
+          className="text-center space-y-6"
         >
           {candlesLit ? (
-            <div className="flex items-center justify-center gap-3">
-              <Wind className="w-8 h-8 text-[#8B7355] animate-pulse" />
-              <p className="font-script text-2xl text-[#8B7355]">
-                {blowing ? "Blowing out the candles..." : "Get ready to make a wish..."}
-              </p>
-              <Wind className="w-8 h-8 text-[#8B7355] animate-pulse" />
-            </div>
+            <>
+              <button
+                onClick={handleBlowCandles}
+                className="font-serif px-10 py-4 bg-gradient-to-r from-[#D4A574] to-[#C4956C] text-white rounded-full text-lg md:text-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-white flex items-center gap-2 mx-auto"
+              >
+                Blow Candles 🎂
+              </button>
+              {blowing && (
+                <p className="text-[#8B7355] text-xl mt-4">
+                  Blowing out the candles...
+                </p>
+              )}
+            </>
           ) : (
             <AnimatePresence>
               <motion.div

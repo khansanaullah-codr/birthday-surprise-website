@@ -63,14 +63,14 @@ export default function PhotoGallery({ onContinue }: PhotoGalleryProps) {
   }, [autoPlay, photos.length]);
 
   // Auto-advance after completing one full cycle
-  useEffect(() => {
-    if (cycleCount >= 1) {
-      const timer = setTimeout(() => {
-        onContinue();
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [cycleCount, onContinue]);
+  // useEffect(() => {
+  //   if (cycleCount >= 1) {
+  //     const timer = setTimeout(() => {
+  //       onContinue();
+  //     }, 2000);
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [cycleCount, onContinue]);
 
   const nextPhoto = () => {
     setAutoPlay(false);

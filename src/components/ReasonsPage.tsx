@@ -27,20 +27,14 @@ export default function ReasonsPage({ onContinue }: ReasonsPageProps) {
   const [revealedCards, setRevealedCards] = useState<number[]>([]);
 
   // Auto-reveal cards one by one
-  useEffect(() => {
-    if (revealedCards.length < reasons.length) {
-      const timer = setTimeout(() => {
-        setRevealedCards([...revealedCards, revealedCards.length]);
-      }, 600);
-      return () => clearTimeout(timer);
-    } else {
-      // Auto-advance after all cards revealed
-      const advanceTimer = setTimeout(() => {
-        onContinue();
-      }, 3000);
-      return () => clearTimeout(advanceTimer);
-    }
-  }, [revealedCards, onContinue]);
+useEffect(() => {
+  if (revealedCards.length < reasons.length) {
+    const timer = setTimeout(() => {
+      setRevealedCards([...revealedCards, revealedCards.length]);
+    }, 600);
+    return () => clearTimeout(timer);
+  }
+}, [revealedCards]);
 
   const allRevealed = revealedCards.length === reasons.length;
 

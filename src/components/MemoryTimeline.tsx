@@ -44,12 +44,12 @@ export default function MemoryTimeline({ onContinue }: MemoryTimelineProps) {
   ];
 
   // Auto-advance after all memories are shown
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      onContinue();
-    }, memories.length * 300 + 4000); // Animation time + 4 seconds
-    return () => clearTimeout(timer);
-  }, [onContinue, memories.length]);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     onContinue();
+  //   }, memories.length * 300 + 4000); // Animation time + 4 seconds
+  //   return () => clearTimeout(timer);
+  // }, [onContinue, memories.length]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#FFF8F0] via-[#F5E6D3] to-[#FFE4E1] relative overflow-hidden py-12 px-4">

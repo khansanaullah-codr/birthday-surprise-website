@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { Heart, Sparkles, Star, Smile, TrendingUp, Plane, Zap, Award } from 'lucide-react';
-import { useEffect } from 'react';
 
 interface FinalMessageProps {
   onBackToHome: () => void;
@@ -13,18 +12,9 @@ export default function FinalMessage({ onBackToHome }: FinalMessageProps) {
     { icon: Award, text: "Health" },
     { icon: Smile, text: "Happiness" },
     { icon: TrendingUp, text: "Success" },
-    { icon: Heart, text: "Love" },
     { icon: Plane, text: "Adventures" },
     { icon: Sparkles, text: "Dreams" },
   ];
-
-  // Auto-return to beginning after showing final message
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      onBackToHome();
-    }, 15000); // 15 seconds to read the final message
-    return () => clearTimeout(timer);
-  }, [onBackToHome]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#FFF8F0] via-[#FFE4E1] to-[#F5E6D3] relative overflow-hidden py-12 px-4">
@@ -65,13 +55,11 @@ export default function FinalMessage({ onBackToHome }: FinalMessageProps) {
         >
           {/* Main heart */}
           <motion.div
-            animate={{
-              scale: [1, 1.1, 1],
-            }}
+            animate={{ scale: [1, 1.1, 1] }}
             transition={{
               duration: 2,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
             className="mb-8"
           >
@@ -205,7 +193,7 @@ export default function FinalMessage({ onBackToHome }: FinalMessageProps) {
           >
             <Heart className="w-8 h-8 text-pink-400 fill-pink-400" />
             <p className="font-script text-2xl md:text-3xl text-[#8B7355]">
-              With all my love... Always!
+              With happiness and respect,
             </p>
             <Heart className="w-8 h-8 text-pink-400 fill-pink-400" />
           </motion.div>
