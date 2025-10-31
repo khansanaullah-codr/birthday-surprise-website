@@ -1,0 +1,8 @@
+__turbopack_load_page_chunks__("/_error", [
+  "static/chunks/[root-of-the-server]__c50cbe6f._.js",
+  "static/chunks/144de_react-dom_cf607fcd._.js",
+  "static/chunks/144de_1ef3ac28._.js",
+  "static/chunks/[root-of-the-server]__4759e651._.js",
+  "static/chunks/workspaces_birthday-surprise-website_pages__error_5771e187._.js",
+  "static/chunks/workspaces_birthday-surprise-website_pages__error_0dfc35e4._.js"
+])

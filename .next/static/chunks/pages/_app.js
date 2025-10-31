@@ -1,0 +1,8 @@
+__turbopack_load_page_chunks__("/_app", [
+  "static/chunks/[root-of-the-server]__80f6d57b._.js",
+  "static/chunks/144de_react-dom_cf607fcd._.js",
+  "static/chunks/144de_1ef3ac28._.js",
+  "static/chunks/[root-of-the-server]__2876e8e3._.js",
+  "static/chunks/workspaces_birthday-surprise-website_pages__app_5771e187._.js",
+  "static/chunks/workspaces_birthday-surprise-website_pages__app_ca700d35._.js"
+])

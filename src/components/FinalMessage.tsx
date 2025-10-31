@@ -63,7 +63,7 @@ export default function FinalMessage({ onBackToHome }: FinalMessageProps) {
             }}
             className="mb-8"
           >
-            <Heart className="w-32 h-32 text-pink-400 fill-pink-400 mx-auto drop-shadow-2xl" />
+            <Sparkles className="w-32 h-32 text-pink-400 fill-pink-400 mx-auto drop-shadow-2xl" />
           </motion.div>
 
           {/* Title */}
@@ -76,7 +76,7 @@ export default function FinalMessage({ onBackToHome }: FinalMessageProps) {
             <div className="flex items-center justify-center gap-3 mb-4">
               <Heart className="w-10 h-10 text-pink-400 fill-pink-400" />
               <h1 className="font-script text-5xl md:text-7xl text-[#D4A574]">
-                You Are Loved Beyond Words!
+                You Are Special Beyond Words!
               </h1>
               <Heart className="w-10 h-10 text-pink-400 fill-pink-400" />
             </div>
@@ -100,7 +100,7 @@ export default function FinalMessage({ onBackToHome }: FinalMessageProps) {
               <div className="flex items-start gap-3">
                 <Star className="w-6 h-6 text-yellow-500 flex-shrink-0 mt-1" />
                 <p className="font-serif text-lg md:text-xl text-[#5D4E37] leading-relaxed">
-                  Thank you for being such an incredible person. Your presence makes everyone's life brighter!
+                  Thank you for being such an incredible person. Your presence makes everyone's feel happier!
                 </p>
               </div>
 

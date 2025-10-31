@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import LandingPage from '@/components/LandingPage';
-import PhotoGallery from '@/components/PhotoGallery';
+// import PhotoGallery from '@/components/PhotoGallery';
 import MemoryTimeline from '@/components/MemoryTimeline';
 import ReasonsPage from '@/components/ReasonsPage';
 import VirtualGifts from '@/components/VirtualGifts';
@@ -18,11 +18,11 @@ export default function Home() {
   return (
     <>
       {currentPage === 'landing' && (
-        <LandingPage onOpenSurprise={() => setCurrentPage('gallery')} />
+        <LandingPage onOpenSurprise={() => setCurrentPage('memoryTimeline')} />
       )}
-      {currentPage === 'gallery' && (
+      {/* {currentPage === 'gallery' && (
         <PhotoGallery onContinue={() => setCurrentPage('memoryTimeline')} />
-      )}
+      )} */}
       {currentPage === 'memoryTimeline' && (
         <MemoryTimeline onContinue={() => setCurrentPage('reasons')} />
       )}

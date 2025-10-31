@@ -20,20 +20,20 @@ export default function MemoryTimeline({ onContinue }: MemoryTimelineProps) {
     {
       year: "The Beginning",
       title: "When We First Met",
-      description: "The moment everything changed and life became more beautiful",
+      description: "I could tell right away — your kindness and warmth made me smile.",
       icon: <Sparkles className="w-5 h-5" />
     },
     {
-      year: "Growing Together",
+      year: "The Journey",
       title: "Our Adventures",
-      description: "All the laughs, late-night talks, and unforgettable moments we've shared",
+      description: "The lessons, laughter, and memories I shared with you made my days truly nice.",
       icon: <Star className="w-5 h-5" />
     },
     {
       year: "Special Moments",
-      title: "Memories We Treasure",
-      description: "Every celebration, every milestone, every moment that made us smile",
-      icon: <Heart className="w-5 h-5" />
+      title: "Memories with You",
+      description: "All the smiles, lessons, and late talks that made our days brighter.",
+      icon: <Sparkles className="w-5 h-5" />
     },
     {
       year: "Today",
@@ -42,7 +42,6 @@ export default function MemoryTimeline({ onContinue }: MemoryTimelineProps) {
       icon: <PartyPopper className="w-5 h-5" />
     }
   ];
-
   // Auto-advance after all memories are shown
   // useEffect(() => {
   //   const timer = setTimeout(() => {
@@ -64,7 +63,7 @@ export default function MemoryTimeline({ onContinue }: MemoryTimelineProps) {
             animationDelay: `${Math.random() * 5}s`,
           }}
         >
-          <Heart className="w-6 h-6 text-pink-400/40 fill-pink-400/40" />
+          <Star className="w-6 h-6 text-pink-400/40 fill-pink-400/40" />
         </div>
       ))}
 
@@ -83,7 +82,7 @@ export default function MemoryTimeline({ onContinue }: MemoryTimelineProps) {
             <Sparkles className="w-10 h-10 text-[#D4A574]" />
           </div>
           <p className="font-serif text-lg md:text-xl text-[#8B7355]">
-            A journey through our beautiful moments together
+            A glimpse into the wonderful memories you’ve created with us.
           </p>
         </motion.div>
 
@@ -97,9 +96,8 @@ export default function MemoryTimeline({ onContinue }: MemoryTimelineProps) {
               initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: index * 0.3 }}
-              className={`relative mb-12 md:mb-20 ${
-                index % 2 === 0 ? 'md:pr-1/2 md:text-right' : 'md:pl-1/2 md:ml-auto'
-              }`}
+              className={`relative mb-12 md:mb-20 ${index % 2 === 0 ? 'md:pr-1/2 md:text-right' : 'md:pl-1/2 md:ml-auto'
+                }`}
             >
               <div className={`ml-16 md:ml-0 ${index % 2 === 0 ? 'md:mr-16' : 'md:ml-16'}`}>
                 {/* Timeline dot */}

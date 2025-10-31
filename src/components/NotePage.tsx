@@ -9,11 +9,15 @@ interface NotePageProps {
 }
 
 export default function NotePage({ onBackToHome }: NotePageProps) {
-  const fullText = `Dear Birthday Star,
+  const fullText = `Dear Srishti ma’am,
 
 On this special day, I want to celebrate not just your birthday, but the wonderful person you are and all the joy you bring to everyone around you.
 
-I feel incredibly blessed and happy knowing that your father is so supportive of you. Having such a strong pillar of support in your life is truly a gift, and it's beautiful to see how that love and encouragement helps you shine. His belief in you is well-placed because you are truly amazing!
+I don’t know much about your father personally, but I saw from your story how supportive he is. It truly made me happy to see that kind of love and strength behind you — it’s a beautiful thing, and it shows in the way you always stay positive and inspiring.
+
+I am Sanaullah Khan — just trying to make your day a little brighter with this small surprise for your birthday, made by that mad coder student who decided to turn code into a gift. 😂  
+I can’t do much or blow your birthday candles for real, but as I said, I’ll let you blow them safely here, without anyone at school or other students knowing. 😄  
+I know it’s a funny kind of surprise, but please take it as a small gesture of appreciation and thanks.
 
 As you step into this new year of your life, I want to wish you all the best for your bright future. May every dream you chase become a reality, and may every path you take lead to happiness and success. You have so much potential, and I know you're going to achieve incredible things!
 

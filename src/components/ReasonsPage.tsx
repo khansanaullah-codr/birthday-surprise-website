@@ -1,8 +1,22 @@
 "use client";
 
-import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import { Sparkles, Smile, Heart, Zap, Flower, Star, Palette, FlowerIcon, Award, Bird, Rainbow, Gift as GiftIcon, Laugh } from 'lucide-react';
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import {
+  Sparkles,
+  Smile,
+  Heart,
+  Zap,
+  Flower,
+  Star,
+  Palette,
+  FlowerIcon,
+  Award,
+  Bird,
+  Rainbow,
+  Gift as GiftIcon,
+  Laugh,
+} from "lucide-react";
 
 const reasons = [
   { icon: Sparkles, text: "Your smile lights up every room you enter", color: "from-yellow-400 to-orange-400" },
@@ -15,7 +29,7 @@ const reasons = [
   { icon: Award, text: "Your strength in tough times is remarkable", color: "from-amber-400 to-orange-500" },
   { icon: Bird, text: "Your authenticity is refreshing and rare", color: "from-teal-400 to-cyan-500" },
   { icon: Rainbow, text: "Your positivity lifts everyone's spirits", color: "from-violet-400 to-purple-500" },
-  { icon: Heart, text: "Your friendship is a precious gift", color: "from-red-400 to-pink-500" },
+  { icon: Heart, text: "Your laughter is a precious gift", color: "from-red-400 to-pink-500" },
   { icon: Smile, text: "Your sense of humor brightens every day", color: "from-yellow-300 to-amber-400" },
 ];
 
@@ -27,14 +41,14 @@ export default function ReasonsPage({ onContinue }: ReasonsPageProps) {
   const [revealedCards, setRevealedCards] = useState<number[]>([]);
 
   // Auto-reveal cards one by one
-useEffect(() => {
-  if (revealedCards.length < reasons.length) {
-    const timer = setTimeout(() => {
-      setRevealedCards([...revealedCards, revealedCards.length]);
-    }, 600);
-    return () => clearTimeout(timer);
-  }
-}, [revealedCards]);
+  useEffect(() => {
+    if (revealedCards.length < reasons.length) {
+      const timer = setTimeout(() => {
+        setRevealedCards([...revealedCards, revealedCards.length]);
+      }, 600);
+      return () => clearTimeout(timer);
+    }
+  }, [revealedCards]);
 
   const allRevealed = revealedCards.length === reasons.length;
 
@@ -46,16 +60,16 @@ useEffect(() => {
           key={i}
           className="absolute"
           initial={{ opacity: 0, scale: 0 }}
-          animate={{ 
+          animate={{
             opacity: [0, 1, 0],
             scale: [0, 1, 0],
-            rotate: [0, 360]
+            rotate: [0, 360],
           }}
           transition={{
             duration: 3,
             delay: Math.random() * 2,
             repeat: Infinity,
-            repeatDelay: Math.random() * 3
+            repeatDelay: Math.random() * 3,
           }}
           style={{
             left: `${Math.random() * 100}%`,
@@ -95,10 +109,10 @@ useEffect(() => {
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.8, rotateY: 0 }}
-                animate={{ 
-                  opacity: 1, 
+                animate={{
+                  opacity: 1,
                   scale: 1,
-                  rotateY: revealedCards.includes(index) ? 180 : 0
+                  rotateY: revealedCards.includes(index) ? 180 : 0,
                 }}
                 transition={{ duration: 0.6, delay: index * 0.6 }}
                 className="cursor-pointer [perspective:1000px]"
@@ -110,7 +124,9 @@ useEffect(() => {
                     transition={{ duration: 0.6 }}
                   >
                     {/* Front of card */}
-                    <div className={`absolute inset-0 [backface-visibility:hidden] bg-gradient-to-br ${reason.color} rounded-3xl shadow-xl border-2 border-white flex items-center justify-center`}>
+                    <div
+                      className={`absolute inset-0 [backface-visibility:hidden] bg-gradient-to-br ${reason.color} rounded-3xl shadow-xl border-2 border-white flex items-center justify-center`}
+                    >
                       <div className="text-center">
                         <GiftIcon className="w-16 h-16 text-white mx-auto mb-3" />
                         <p className="font-serif text-white text-lg">
@@ -118,11 +134,11 @@ useEffect(() => {
                         </p>
                       </div>
                     </div>
-                    
-                    {/* Back of card */}
-                    <div className="absolute inset-0 [backface-visibility:hidden] bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl border-2 border-[#E8D4BA] flex items-center justify-center p-6 [transform:rotateY(180deg)]">
-                      <div className="text-center">
-                        <Icon className={`w-10 h-10 mx-auto mb-3 text-[#D4A574]`} />
+
+                    {/* ✅ Fixed Back of card */}
+                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl border-2 border-[#E8D4BA] flex items-center justify-center p-6">
+                      <div className="text-center [transform:rotateY(180deg)]">
+                        <Icon className="w-10 h-10 mx-auto mb-3 text-[#D4A574]" />
                         <p className="text-[#5D4E37] font-medium leading-relaxed">
                           {reason.text}
                         </p>
